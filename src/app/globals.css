@@ -73,6 +73,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height, 72px);
     -webkit-text-size-adjust: 100%;
   }
 
@@ -109,6 +110,11 @@
   ul,
   ol {
     list-style: none;
+  }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: var(--header-height, 72px);
   }
 }
 
@@ -255,8 +261,8 @@
 
   /* Menu mobile — fixed via portal; evita bug do Safari com fixed dentro de sticky */
   .mobile-menu-overlay {
-    min-height: calc(100dvh - 72px);
-    min-height: calc(100vh - 72px);
+    min-height: 100dvh;
+    min-height: 100vh;
     background-color: #afafaf;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
