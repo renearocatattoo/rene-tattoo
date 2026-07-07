@@ -1,7 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
-
-/** Link do WhatsApp para agendamento. */
-const WHATSAPP_URL = "https://wa.me/5517991694656";
+import { CONTACT } from "@/data/site";
 
 /**
  * Galeria de trabalhos.
@@ -50,7 +48,7 @@ export default function Gallery() {
 
           <Reveal variant="up" delay={0.22}>
             <a
-              href={WHATSAPP_URL}
+              href={CONTACT.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-block bg-white px-8 py-3 text-sm font-medium text-black transition-base hover:bg-[#afafaf]"

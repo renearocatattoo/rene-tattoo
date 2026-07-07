@@ -2,9 +2,7 @@
 
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-
-/** Link do WhatsApp para contato. */
-const WHATSAPP_URL = "https://wa.me/";
+import { CONTACT } from "@/data/site";
 
 /**
  * Hero principal do site.
@@ -56,7 +54,7 @@ export default function Hero() {
           <Reveal onMount variant="up" delay={0.4}>
             <div className="mt-8 flex w-full justify-center gap-4 md:w-auto md:justify-start">
               <a
-                href={WHATSAPP_URL}
+                href={CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-white px-8 py-3 text-center text-sm font-medium text-black transition-base hover:bg-[#AFAFAF] md:flex-none"

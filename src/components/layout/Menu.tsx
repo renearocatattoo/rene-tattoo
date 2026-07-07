@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { NAV_LINKS, SOCIAL_LINKS } from "@/data/site";
 import { CloseIcon } from "@/components/ui/icons";
 
@@ -11,6 +12,11 @@ import { CloseIcon } from "@/components/ui/icons";
  */
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -20,6 +26,53 @@ export default function Menu() {
   }, [isOpen]);
 
   const closeMenu = () => setIsOpen(false);
+
+  const mobileMenu =
+    isOpen &&
+    mounted &&
+    createPortal(
+      <div
+        className="mobile-menu-overlay fixed inset-x-0 bottom-0 top-[72px] z-40 flex flex-col bg-[#AFAFAF] text-black lg:hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu de navegação"
+      >
+        <ul className="flex flex-1 flex-col items-center justify-center gap-8">
+          {NAV_LINKS.map((link, index) => (
+            <li
+              key={link.href}
+              className="mobile-menu-link"
+              style={{ animationDelay: `${0.05 + index * 0.05}s` }}
+            >
+              <a
+                href={link.href}
+                onClick={closeMenu}
+                className="text-3xl font-medium"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="flex items-center justify-center gap-4 pb-16">
+          {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-11 w-11 items-center justify-center border border-black"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>,
+      document.body,
+    );
 
   return (
     <header className="sticky top-0 z-50 w-full bg-black text-white motion-slide-down">
@@ -78,45 +131,7 @@ export default function Menu() {
         </button>
       </nav>
 
-      {/* Menu mobile em tela cheia */}
-      {isOpen && (
-        <div className="motion-overlay-in fixed inset-0 top-[72px] z-40 flex flex-col bg-[#AFAFAF] text-black lg:hidden">
-          <ul className="flex flex-1 flex-col items-center justify-center gap-8">
-            {NAV_LINKS.map((link, index) => (
-              <li
-                key={link.href}
-                style={{
-                  animation: `motion-fade-in 0.4s ease ${0.05 + index * 0.05}s both`,
-                }}
-              >
-                <a
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="text-3xl font-medium"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <ul className="flex items-center justify-center gap-4 pb-16">
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center border border-black"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {mobileMenu}
     </header>
   );
 }

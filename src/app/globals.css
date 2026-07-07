@@ -252,6 +252,20 @@
   .motion-overlay-in {
     animation: motion-overlay-in 0.3s ease forwards;
   }
+
+  /* Menu mobile — fixed via portal; evita bug do Safari com fixed dentro de sticky */
+  .mobile-menu-overlay {
+    min-height: calc(100dvh - 72px);
+    min-height: calc(100vh - 72px);
+    background-color: #afafaf;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    isolation: isolate;
+  }
+
+  .mobile-menu-link {
+    animation: mobile-menu-link-in 0.4s ease both;
+  }
 }
 
 @keyframes motion-fade-in {
@@ -283,6 +297,17 @@
   }
 }
 
+@keyframes mobile-menu-link-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion-reveal,
   .motion-stagger-item {
@@ -295,6 +320,12 @@
   .motion-fade-in,
   .motion-slide-down,
   .motion-overlay-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .mobile-menu-link {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

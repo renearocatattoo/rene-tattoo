@@ -6,10 +6,14 @@ import {
 } from "@/components/ui/icons";
 import type { ComponentType } from "react";
 
+const WHATSAPP_NUMBER = "5517991694656";
+const WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site e gostaria de mais informações.";
+
 /** Informações de contato do estúdio. */
 export const CONTACT = {
   whatsappDisplay: "(17) 99169-4656",
-  whatsappUrl: "https://wa.me/5517991694656",
+  whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   address: "Av. Angelo Martins Tristão, 189 - Centro, Colina - SP",
   instagram: "@rene_aroca",
   instagramUrl: "https://instagram.com/rene_aroca",
