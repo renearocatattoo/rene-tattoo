@@ -105,7 +105,7 @@ export default function Menu() {
       >
         <nav className="container-custom flex items-center justify-between py-5">
           <a href="#hero" onClick={closeMenu} className="text-xl font-bold tracking-widest">
-            RENÊ TATTOO
+            RENÊ AROCA TATTOO
           </a>
 
           {/* Navegação desktop */}

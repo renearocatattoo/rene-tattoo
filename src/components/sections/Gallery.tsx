@@ -1,7 +1,7 @@
 import Reveal from "@/components/ui/Reveal";
-import { CONTACT } from "@/data/site";
-
-/**
+import TattooGalleryMobile from "@/components/ui/TattooGalleryMobile";
+import TattooGalleryStrip from "@/components/ui/TattooGalleryStrip";
+import { CONTACT } from "@/data/site";/**
  * Galeria de trabalhos.
  * Exibe composição visual e bloco de chamada com animações sutis ao scroll.
  */
@@ -9,23 +9,15 @@ export default function Gallery() {
   return (
     <section id="gallery" className="w-full overflow-hidden">
       <Reveal variant="scale" duration={0.7}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/gallery.png"
-          alt="Composição visual com tatuagens em preto e branco"
-          className="hidden aspect-[1900/350] w-full object-cover md:block"
-        />
+        <div className="hidden md:block">
+          <TattooGalleryStrip />
+        </div>
       </Reveal>
-
       <Reveal variant="scale" duration={0.7}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/gallery-mobile.png"
-          alt="Composição visual com tatuagens em preto e branco"
-          className="block aspect-[600/550] w-full object-cover md:hidden"
-        />
+        <div className="md:hidden">
+          <TattooGalleryMobile />
+        </div>
       </Reveal>
-
       <div className="relative flex aspect-[1200/1600] w-full items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/images/bg-gallery-mobile.png')] md:aspect-[1920/730] md:bg-[url('/images/bg-gallery.png')]">
         <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 

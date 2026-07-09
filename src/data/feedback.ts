@@ -22,7 +22,7 @@ export const FEEDBACK_ITEMS: FeedbackItem[] = [
   {
     id: "3",
     name: "Angela",
-    text: "Trabalho incível! Eu que tenho que agradecer.",
+    text: "Trabalho incrível! Eu que tenho que agradecer.",
     avatar: "/images/feedback-3.png",
   },
   {
