@@ -41,6 +41,8 @@ export default function Carousel({
             src={src}
             alt={`${alt} ${index + 1}`}
             onClick={onImageClick ? () => onImageClick(src) : undefined}
+            loading="lazy"
+            decoding="async"
             className={`aspect-[1071/1428] w-full shrink-0 snap-center rounded-lg object-cover ${
               onImageClick ? "cursor-pointer" : ""
             }`}

@@ -5,12 +5,12 @@ import { CONTACT } from "@/data/site";
 
 /** Imagens do estúdio exibidas na galeria/carrossel. */
 const STUDIO_IMAGES = [
-  "/images/studio-1.png",
-  "/images/studio-2.png",
-  "/images/studio-3.png",
-  "/images/studio-4.png",
-  "/images/studio-5.png",
-  "/images/studio-6.png",
+  "/images/studio-1.webp",
+  "/images/studio-2.webp",
+  "/images/studio-3.webp",
+  "/images/studio-4.webp",
+  "/images/studio-5.webp",
+  "/images/studio-6.webp",
 ];
 
 /**

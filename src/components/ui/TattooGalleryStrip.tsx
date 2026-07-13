@@ -4,13 +4,13 @@ import { useState } from "react";
 import Lightbox from "@/components/ui/Lightbox";
 
 const TATTOO_IMAGES = [
-  { src: "/images/tatto-1.png", width: 238 },
-  { src: "/images/tatto-2.png", width: 250 },
-  { src: "/images/tatto-3.png", width: 204 },
-  { src: "/images/tatto-4.png", width: 524 },
-  { src: "/images/tatto-5.png", width: 252 },
-  { src: "/images/tatto-6.png", width: 209 },
-  { src: "/images/tatto-7.png", width: 225 },
+  { src: "/images/tatto-1.webp", width: 238 },
+  { src: "/images/tatto-2.webp", width: 250 },
+  { src: "/images/tatto-3.webp", width: 204 },
+  { src: "/images/tatto-4.webp", width: 524 },
+  { src: "/images/tatto-5.webp", width: 252 },
+  { src: "/images/tatto-6.webp", width: 209 },
+  { src: "/images/tatto-7.webp", width: 225 },
 ] as const;
 
 const ROW_HEIGHT = 350;
@@ -40,11 +40,13 @@ export default function TattooGalleryStrip() {
             aria-label={`Ver tatuagem ${index + 1} em destaque`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={image.src}
-              alt={`Tatuagem em preto e cinza ${index + 1}`}
-              className="h-full w-full object-cover"
-            />
+              <img
+                src={image.src}
+                alt={`Tatuagem em preto e cinza ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
           </button>
         ))}
       </div>

@@ -1,7 +1,10 @@
 import Reveal from "@/components/ui/Reveal";
+import MediaSwitch from "@/components/ui/MediaSwitch";
 import TattooGalleryMobile from "@/components/ui/TattooGalleryMobile";
 import TattooGalleryStrip from "@/components/ui/TattooGalleryStrip";
-import { CONTACT } from "@/data/site";/**
+import { CONTACT } from "@/data/site";
+
+/**
  * Galeria de trabalhos.
  * Exibe composição visual e bloco de chamada com animações sutis ao scroll.
  */
@@ -9,16 +12,30 @@ export default function Gallery() {
   return (
     <section id="gallery" className="w-full overflow-hidden">
       <Reveal variant="scale" duration={0.7}>
-        <div className="hidden md:block">
-          <TattooGalleryStrip />
-        </div>
+        <MediaSwitch
+          query="(min-width: 768px)"
+          match={<TattooGalleryStrip />}
+          fallback={<TattooGalleryMobile />}
+        />
       </Reveal>
-      <Reveal variant="scale" duration={0.7}>
-        <div className="md:hidden">
-          <TattooGalleryMobile />
-        </div>
-      </Reveal>
-      <div className="relative flex aspect-[1200/1600] w-full items-center justify-center bg-cover bg-center bg-no-repeat bg-[url('/images/bg-gallery-mobile.png')] md:aspect-[1920/730] md:bg-[url('/images/bg-gallery.png')]">
+
+      <div className="relative flex aspect-[1200/1600] w-full items-center justify-center md:aspect-[1920/730]">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcSet="/images/bg-gallery.webp"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/bg-gallery-mobile.webp"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+
         <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
         <div className="relative z-10 flex flex-col items-center px-6 text-center">

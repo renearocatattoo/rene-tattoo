@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="flex flex-col items-center md:items-start">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="House Tattoo Art"
                 className="h-[12.5rem] w-auto"
               />

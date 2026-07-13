@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   title: "Rene Tattoo",
   description: "Estúdio de tatuagem",
   icons: {
-    icon: "/images/logo-quadrada.png",
+    icon: [
+      { url: "/images/logo-quadrada.webp", type: "image/webp" },
+      { url: "/images/logo-quadrada.png", type: "image/png" },
+    ],
     apple: "/images/logo-quadrada.png",
   },
 };

@@ -17,6 +17,8 @@ export default function FeedbackCard({ item, className = "" }: FeedbackCardProps
       <img
         src={item.avatar}
         alt={item.name}
+        loading="lazy"
+        decoding="async"
         className="h-14 w-14 shrink-0 rounded-full object-cover"
       />
 

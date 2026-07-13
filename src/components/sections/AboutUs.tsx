@@ -15,8 +15,10 @@ export default function AboutUs() {
             <div className="overflow-hidden rounded-lg border border-white/10">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/about-us.png"
+                src="/images/about-us.webp"
                 alt="Renê Aroca trabalhando no estúdio"
+                loading="lazy"
+                decoding="async"
                 className="aspect-[1071/1428] w-full object-cover"
               />
             </div>

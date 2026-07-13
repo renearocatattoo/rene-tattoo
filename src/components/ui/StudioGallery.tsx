@@ -27,6 +27,8 @@ export default function StudioGallery({ images, alt }: StudioGalleryProps) {
             src={src}
             alt={`${alt} ${index + 1}`}
             onClick={() => setActiveImage(src)}
+            loading="lazy"
+            decoding="async"
             className="aspect-[1071/1428] w-full cursor-pointer rounded-lg object-cover transition-base hover:opacity-80"
           />
         ))}

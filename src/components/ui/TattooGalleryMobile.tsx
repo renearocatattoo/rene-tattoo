@@ -10,16 +10,16 @@ type GalleryImage = {
 };
 
 const ROW_IMAGES: GalleryImage[] = [
-  { src: "/images/tattoo-mobile-1.png", width: 104, height: 152 },
-  { src: "/images/tattoo-mobile-2.png", width: 109, height: 152 },
-  { src: "/images/tattoo-mobile-3.png", width: 90, height: 152 },
-  { src: "/images/tattoo-mobile-4.png", width: 110, height: 152 },
-  { src: "/images/tattoo-mobile-5.png", width: 91, height: 152 },
-  { src: "/images/tattoo-mobile-6.png", width: 98, height: 152 },
+  { src: "/images/tattoo-mobile-1.webp", width: 104, height: 152 },
+  { src: "/images/tattoo-mobile-2.webp", width: 109, height: 152 },
+  { src: "/images/tattoo-mobile-3.webp", width: 90, height: 152 },
+  { src: "/images/tattoo-mobile-4.webp", width: 110, height: 152 },
+  { src: "/images/tattoo-mobile-5.webp", width: 91, height: 152 },
+  { src: "/images/tattoo-mobile-6.webp", width: 98, height: 152 },
 ];
 
 const FOOTER_IMAGE: GalleryImage = {
-  src: "/images/tattoo-mobile-footer.png",
+  src: "/images/tattoo-mobile-footer.webp",
   width: 600,
   height: 399,
 };
@@ -53,6 +53,8 @@ export default function TattooGalleryMobile() {
               <img
                 src={image.src}
                 alt={`Tatuagem em preto e cinza ${index + 1}`}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </button>
@@ -70,6 +72,8 @@ export default function TattooGalleryMobile() {
           <img
             src={FOOTER_IMAGE.src}
             alt="Tatuagem em preto e cinza"
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
         </button>
